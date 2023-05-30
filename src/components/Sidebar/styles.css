@@ -1,0 +1,70 @@
+
+
+#sidebar-wrapper {
+  /* diseño de la sidebar */
+  position: fixed;
+  z-index: 123321312;
+  bottom: 0;
+  top: 0;
+  /* marginleft -20 para q desaparezca el sidebar */
+  margin-left: -20rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+  background-image: linear-gradient(195deg, #42424a 0%, #191919 100%);
+  border-radius: 0.7rem;
+  border: 2px #42424a solid !important;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+  /* hace aparecer el side bar al tocar el boton hamburguesa (pantalla <md) */
+  margin-left: 1rem;
+}
+
+
+
+.height {
+  height: 100% !important;
+}
+
+.border-top-radius-1-rem {
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+}
+
+.border-radius-simple {
+  border-radius: 4px;
+}
+
+
+
+
+.sidebar-hr {
+  border: 1px white solid;
+  margin-top: 0;
+}
+
+
+@media (min-width: 1200px) {
+  #sidebar-wrapper {
+    position: fixed;
+    margin: 1rem !important;
+  }
+/*  */
+
+/*   #body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: -15rem;
+  }  */
+}

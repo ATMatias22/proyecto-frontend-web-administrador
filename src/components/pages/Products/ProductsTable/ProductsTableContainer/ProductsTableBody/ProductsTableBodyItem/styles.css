@@ -1,0 +1,15 @@
+.tr-body{
+  border-top-width:2px !important;
+  border-top-color: inherit !important;
+  border-bottom-width:0 !important;
+  border-bottom-color: white !important;
+}
+
+.icon-black{
+  color: black !important;
+}
+
+
+.cursor-pointer{
+  cursor: pointer;
+}

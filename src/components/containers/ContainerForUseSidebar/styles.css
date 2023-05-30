@@ -1,0 +1,21 @@
+#body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+  /* hace aparecer el side bar al tocar el boton hamburguesa (pantalla <md) */
+  margin-left: 1rem;
+}
+
+#body{
+  min-height: 100vh;
+}
+
+#wrapper {
+  overflow-x: hidden;
+}
+
+
+@media (min-width: 1200px) {
+
+
+/*   #body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: -15rem;
+  }  */
+}

@@ -1,0 +1,10 @@
+.container-title {
+  margin-top: -1.5rem !important;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%),
+    0 7px 10px -5px rgb(233 30 99 / 40%) !important;
+}
+
+.bg-gradient-primary {
+  background-image: linear-gradient(195deg, #ec407a 0%, #d81b60 100%);
+}

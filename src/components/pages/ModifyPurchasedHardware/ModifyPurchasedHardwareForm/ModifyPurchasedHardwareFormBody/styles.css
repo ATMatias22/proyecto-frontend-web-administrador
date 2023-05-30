@@ -1,0 +1,9 @@
+.cuadroError{
+    background-color: rgb(228, 169, 179);
+    border-width: 2px;
+    border-color: red;
+}
+
+.mensajeError{
+    color: red;
+}

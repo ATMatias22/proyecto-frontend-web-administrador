@@ -1,0 +1,12 @@
+.closer-hamburguer {
+  cursor: pointer;
+}
+
+
+.sidebar-header {
+  padding: 2rem !important;
+}
+
+#sidebar-icon {
+  max-height: 2rem;
+}

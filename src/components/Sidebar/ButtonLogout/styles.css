@@ -1,0 +1,13 @@
+.btn-cerrar-sesion {
+  background-color: #df2768;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.5rem; 
+  display: inline-block;
+}
+
+.btn-cerrar-sesion:hover {
+  box-shadow: 0 3px 3px 0 rgb(233 30 99 / 15%), 0 3px 1px -2px rgb(233 30 99 / 20%), 0 1px 5px 0 rgb(233 30 99 / 15%);
+}

@@ -1,0 +1,22 @@
+
+
+.sidebar-item {
+  color: white !important;
+  text-decoration: none;
+}
+
+
+/*  */
+.active {
+  background-color: #df2768;
+}
+
+/*  */
+.sidebar-container {
+  list-style: none;
+}
+
+/*  */
+.sidebar-item:hover {
+  background-color: #55555a !important;
+}
