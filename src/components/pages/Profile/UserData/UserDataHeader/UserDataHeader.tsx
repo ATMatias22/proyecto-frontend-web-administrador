@@ -23,7 +23,7 @@ export const UserDataHeader = () => {
       </div>
       <div className="col-auto my-auto">
         <div className="h-100">
-          <h5 className="mb-1">{data.name + " " + data.lastName}</h5>
+          <h5 className="mb-1">{data.name + " " + data.lastname}</h5>
           <p className="mb-0 font-weight-normal text-sm">Administrador</p>
         </div>
       </div>

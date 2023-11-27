@@ -8,22 +8,24 @@ export const SalesTableHeader = () => {
         <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
           Id
         </th>
-        <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-          Nombre del comprador
+        <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+          Email del comprador
         </th>
-        <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-          Apellido del comprador
-        </th>
+        {/*<th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+          {Apellido del comprador}
+  </th>*/}
         <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
           Fecha de compra
         </th>
         <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-          Nombre del producto
+          Total
         </th>
         <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-          Cantidad
+          Estado
         </th>
-      
+        {/*<th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+          Estado
+  </th>*/}
       </tr>
     </thead>
   );

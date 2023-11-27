@@ -6,6 +6,7 @@ import { PurchasedHardware } from "./components/pages/PurchasedHardware/Purchase
 import {
   INDEX,
   MAIN_ROUTE_PANEL_ADMINISTRATOR,
+  SECTION_ROUTE_CONTACT,
   SECTION_ROUTE_PRODUCTS,
   SECTION_ROUTE_PROFILE,
   SECTION_ROUTE_PURCHASED_HARDWARE,
@@ -17,15 +18,17 @@ import { ContainerForUseSidebar } from "./components/containers/ContainerForUseS
 import { AddPurchasedHardware } from "./components/pages/AddPurchasedHardware/AddPurchasedHardware";
 import {
   SUB_SECTION_ROUTE_PRODUCTS_ADD,
+  SUB_SECTION_ROUTE_PRODUCTS_ADD_STOCK,
   SUB_SECTION_ROUTE_PRODUCTS_MODIFY,
+  SUB_SECTION_ROUTE_PRODUCTS_VIEW_STOCK,
   SUB_SECTION_ROUTE_PURCHASED_HARDWARE_ADD,
   SUB_SECTION_ROUTE_PURCHASED_HARDWARE_MODIFY,
-  SUB_SECTION_ROUTE_SALES_ADD,
+  //SUB_SECTION_ROUTE_SALES_ADD,
   SUB_SECTION_ROUTE_SALES_MODIFY,
   SUB_SECTION_ROUTE_USERS_MODIFY,
 } from "./components/Sidebar/subsections";
 import { ModifyPurchasedHardware } from "./components/pages/ModifyPurchasedHardware/ModifyPurchasedHardware";
-import { AddSales } from "./components/pages/AddSales/AddSales";
+//import { AddSales } from "./components/pages/AddSales/AddSales";
 import { ModifySales } from "./components/pages/ModifySales/ModifySales";
 import { ModifyUsers } from "./components/pages/ModifyUsers/ModifyUsers";
 import { FormLogin } from "./components/pages/Login/FormLogin";
@@ -33,6 +36,9 @@ import { NotFound } from "./components/pages/NotFound/NotFound";
 import { Products } from "./components/pages/Products/Products";
 import { AddProducts } from "./components/pages/AddProducts/AddProducts";
 import { ModifyProducts } from "./components/pages/ModifyProducts/ModifyProducts";
+import { AddStock } from "./components/pages/AddStock/AddStock";
+import { ViewStock } from "./components/pages/ViewStock/ViewStock";
+import { Contact } from "./components/pages/Contact/Contact";
 
 function App() {
   return (
@@ -69,17 +75,18 @@ function App() {
           />
           <Route
             path={
-              SUB_SECTION_ROUTE_PURCHASED_HARDWARE_MODIFY.route + "/:purchasedHardwareId"
+              SUB_SECTION_ROUTE_PURCHASED_HARDWARE_MODIFY.route +
+              "/:purchasedHardwareId"
             }
             element={<ModifyPurchasedHardware />}
           />
 
           {/* Seccion ventas y sus subsecciones */}
           <Route path={SECTION_ROUTE_SALES.route} element={<Sales />} />
-          <Route
+          {/*<Route
             path={SUB_SECTION_ROUTE_SALES_ADD.route}
             element={<AddSales />}
-          />
+          />*/}
           <Route
             path={SUB_SECTION_ROUTE_SALES_MODIFY.route}
             element={<ModifySales />}
@@ -95,6 +102,17 @@ function App() {
             path={SUB_SECTION_ROUTE_PRODUCTS_MODIFY.route + "/:productId"}
             element={<ModifyProducts />}
           />
+          <Route
+            path={
+              SUB_SECTION_ROUTE_PRODUCTS_ADD_STOCK.route + "/:productId"
+            }
+            element={<AddStock />}
+          />
+          <Route
+            path={SUB_SECTION_ROUTE_PRODUCTS_VIEW_STOCK.route + "/:productId"}
+            element={<ViewStock />}
+          />
+          <Route path={SECTION_ROUTE_CONTACT.route} element={<Contact />} />
         </Route>
       </Routes>
     </Router>
@@ -102,3 +120,8 @@ function App() {
 }
 
 export default App;
+
+//como hostear una pagina web
+//https://www.youtube.com/shorts/15a-ZMKEo6U
+
+//pag: https://app.netlify.com/drop

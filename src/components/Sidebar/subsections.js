@@ -32,7 +32,7 @@ export const SUB_SECTION_ROUTE_PURCHASED_HARDWARE_MODIFY = {
 };
 
 
-export const SUB_SECTION_ROUTE_SALES_ADD = {
+/*export const SUB_SECTION_ROUTE_SALES_ADD = {
   key: 4,
   name: "Agregar venta",
   route: SECTION_ROUTE_SALES.route + "/agregarventa",
@@ -40,7 +40,18 @@ export const SUB_SECTION_ROUTE_SALES_ADD = {
     { id: 1, name: SECTION_ROUTE_SALES.name },
     { id: 2, name: "Agregar venta" },
   ]
+};*/
+
+export const SUB_SECTION_ROUTE_SALES_ADD = {
+  key: 4,
+  name: "Ver Ordenes de Venta",
+  route: SECTION_ROUTE_SALES.route + "/ordenventa",
+  path: [
+    { id: 1, name: SECTION_ROUTE_SALES.name },
+    { id: 2, name: "Ver Ordenes de Venta" },
+  ]
 };
+
 
 export const SUB_SECTION_ROUTE_SALES_MODIFY = {
   key: 5,
@@ -70,5 +81,35 @@ export const SUB_SECTION_ROUTE_PRODUCTS_MODIFY = {
   path: [
     { id: 1, name: SECTION_ROUTE_PRODUCTS.name },
     { id: 2, name: "Modificar producto" },
+  ]
+};
+
+export const SUB_SECTION_ROUTE_SALES_VIEW_ORDER = {
+  key: 8,
+  name: "Orden de venta",
+  route: SECTION_ROUTE_SALES.route + "/ordenventa",
+  path: [
+    { id: 1, name: SECTION_ROUTE_SALES.name },
+    { id: 2, name: "Orden de Venta" },
+  ]
+};
+
+export const SUB_SECTION_ROUTE_PRODUCTS_ADD_STOCK = {
+  key: 9,
+  name: "Agregar Stock",
+  route: SECTION_ROUTE_PRODUCTS.route + "/agregarstock",
+  path: [
+    { id: 1, name: SECTION_ROUTE_PRODUCTS.name },
+    { id: 2, name: "Agregar Stock" },
+  ]
+};
+
+export const SUB_SECTION_ROUTE_PRODUCTS_VIEW_STOCK = {
+  key: 10,
+  name: "Ver Stock",
+  route: SECTION_ROUTE_PRODUCTS.route + "/verstock",
+  path: [
+    { id: 1, name: SECTION_ROUTE_PRODUCTS.name },
+    { id: 2, name: "Ver Stock" },
   ]
 };

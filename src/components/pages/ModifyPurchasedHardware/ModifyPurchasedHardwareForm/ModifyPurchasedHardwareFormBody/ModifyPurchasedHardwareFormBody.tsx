@@ -22,7 +22,7 @@ export const ModifyPurchasedHardwareFormBody = () => {
 
   const getPurchasedHardware = () => {
     const URL =
-      "http://localhost:8080/sensor/api/purchasedhardwares/" +
+      "http://localhost:8080/sensor/api/purchased-hardwares/" +
       purchasedHardwareId;
 
     const config: any = {
@@ -70,7 +70,7 @@ export const ModifyPurchasedHardwareFormBody = () => {
   const modifyPurchasedHardware = handleSubmit((data, event) => {
     event?.preventDefault();
     const URL =
-      "http://localhost:8080/sensor/api/purchasedhardwares/" +
+      "http://localhost:8080/sensor/api/purchased-hardwares/" +
       purchasedHardwareId;
 
     const config: any = {

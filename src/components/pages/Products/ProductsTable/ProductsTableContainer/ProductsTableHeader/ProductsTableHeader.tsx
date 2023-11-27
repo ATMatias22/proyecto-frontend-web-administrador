@@ -23,6 +23,12 @@ export const ProductsTableHeader = () => {
         <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
           Eliminar
         </th>
+        <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+          Agregar stock
+        </th>
+        <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+          Ver datos Stock
+        </th>
       </tr>
     </thead>
   );

@@ -16,7 +16,7 @@ export const PurchasedHardwareTableBodyItem = (ph: PurchasedHardware) => {
 
   const deletePh = () => {
     const URL =
-      "http://localhost:8080/sensor/api/purchasedhardwares" + `/${id}`;
+      "http://localhost:8080/sensor/api/purchased-hardwares" + `/${id}`;
 
     const config: any = {
       headers: {

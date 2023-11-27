@@ -34,7 +34,7 @@ export const UserTableBody = () => {
           key={user.id}
           id={user.id}
           name={user.name}
-          lastName={user.lastName}
+          lastname={user.lastname}
           country={user.country}
           email={user.email}
         />

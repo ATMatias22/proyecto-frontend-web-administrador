@@ -8,7 +8,7 @@ export const PurchasedHardwareTableBody = () => {
     useState<PurchasedHardware[]>();
 
   useEffect(() => {
-    const URL = "http://localhost:8080/sensor/api/purchasedhardwares/all";
+    const URL = "http://localhost:8080/sensor/api/purchased-hardwares/all";
     const config: any = {
       headers: {
         Authorization: "Bearer " + window.localStorage.getItem("token"),
@@ -20,10 +20,14 @@ export const PurchasedHardwareTableBody = () => {
       .then((response) => {
         setPurchasedHardwares(response.data);
         console.log(response.data)
+
       })
       .catch((error) => {
+  
         console.log(error.response.data);
         console.log(error.response.data.error.message);
+
+
       });
   }, []);
 

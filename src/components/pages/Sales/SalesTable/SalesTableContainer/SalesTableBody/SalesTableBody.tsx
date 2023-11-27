@@ -11,37 +11,57 @@ export const SalesTableBody = () => {
 
   const [sales, setSales] = useState<Sale[]>();
 
-  useEffect(() => {
-    const URL = "http://localhost:8080/sensor/api/sales/all";
-    const config: any = {
-      headers: {
-        Authorization: "Bearer " + window.localStorage.getItem("token"),
-      },
-    };
-    axios
-      .get(URL, config)
-      .then((response) => {
-        setSales(response.data);
-        console.log(response.data)
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-        console.log(error.response.data.error.message);
-      });
-  }, []);
+  const getOrdenVentaEstado = () => {
 
+    if (localStorage.getItem("token")) {
+      const token: string = JSON.stringify(localStorage.getItem("token"));
+
+      const payload = token.split(".")[1];
+      const payloadDecoded = atob(payload);
+      const values = JSON.parse(payloadDecoded);
+
+      const opcionOrden = window.localStorage.getItem("opcionOrden");
+
+      const URL = "http://localhost:8080/sensor/api/sale-orders/admin?state=" + opcionOrden;
+
+      const config: any = {
+        headers: {
+          Authorization: "Bearer " + window.localStorage.getItem("token"),
+        },
+      };
+      
+      axios
+        .get(URL, config)
+        .then((res) => {
+          setSales(res.data);
+          //console.log(res.data)
+        })
+        .catch((error) => {
+          console.log(error.res.data);
+          console.log(error.res.data.error.message);
+        });
+    }
+  }
+
+  useEffect(() => {
+      getOrdenVentaEstado()
+  }, [/*sales*/]);
+
+ /* useEffect(() => {
+    reset(sales);
+  }, [sales]);*/
 
   return (
     <tbody>
       {sales?.map((sale) => (
         <SalesTableBodyItem
-          key={sale.id}
-          id={sale.id}
-          namePurchaser={sale.namePurchaser}
-          lastNamePurchaser={sale.lastNamePurchaser}
+          key={sale.saleOrderId}
+          saleOrderId={sale.saleOrderId}
+          state={sale.state}
+          total={sale.total}
           productName={sale.productName}
-          quantity={sale.quantity}
-          datePurchase={sale.datePurchase}
+          created={sale.created}
+          user={sale.user}
         />
       ))}
     </tbody>

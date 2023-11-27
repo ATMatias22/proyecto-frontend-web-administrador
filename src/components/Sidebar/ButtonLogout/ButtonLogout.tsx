@@ -19,7 +19,7 @@ export const ButtonLogout = () => {
           className="btn-cerrar-sesion mt-4 w-100 text-light"
           onClick={deslog}
         >
-          Cerrar session
+          Cerrar sesión
         </button>
       </div>
     </div>

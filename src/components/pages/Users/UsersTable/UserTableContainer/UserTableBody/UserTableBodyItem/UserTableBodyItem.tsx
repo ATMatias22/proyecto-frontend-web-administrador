@@ -17,7 +17,7 @@ export const UserTableBodyItem = (user:User) => {
         <p className="text-xs font-weight-bold mb-0">{user.name}</p>
       </td>
       <td className="align-middle text-center text-sm">
-        <p className="text-xs font-weight-bold mb-0">{user.lastName}</p>
+        <p className="text-xs font-weight-bold mb-0">{user.lastname}</p>
       </td>
       <td className="align-middle text-center">
         <p className="text-xs font-weight-bold mb-0">{user.country}</p>

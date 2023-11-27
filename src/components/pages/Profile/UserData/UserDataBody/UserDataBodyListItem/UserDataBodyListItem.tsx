@@ -27,7 +27,7 @@ export const UserDataBodyListItem = () => {
     <ul className="list-group">
       <UserDataBodyItem
         category={"Nombre completo"}
-        value={data.name + " " + data.lastName}
+        value={data.name + " " + data.lastname}
       />
       <UserDataBodyItem
         category={"Fecha de nacimiento"}

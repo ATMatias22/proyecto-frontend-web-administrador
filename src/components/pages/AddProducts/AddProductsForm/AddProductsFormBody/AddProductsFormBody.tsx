@@ -15,11 +15,13 @@ interface ProductDTO {
   name: string;
   description: string;
   price: number;
-  idUser:number;
+  // idUser:number;
+  //file: FileList;
+  //file: FileList;
 }
 
 interface ImageProductDTO {
-  multipartFile:File;
+  multipartFile: File;
 }
 
 export const AddProductsFormBody = () => {
@@ -49,25 +51,44 @@ export const AddProductsFormBody = () => {
       headers: {
         Authorization: "Bearer " + window.localStorage.getItem("token"),
       },
+
     };
+
+    /*console.log("ARCHIVO:")
+    console.log(data.file[0].name)*/
 
     const productDTO: ProductDTO = {
       name: data.name,
       description: data.description,
-      price: data.price,
-      idUser: Number(idUser),
+      price: data.price
+      // file: data.file
     };
 
-    const formData = new FormData();
-    formData.append("product", JSON.stringify(productDTO) );
-    formData.append("file", data.file[0]);
+    let producto = JSON.stringify(productDTO)
+
+    const blob = new Blob([producto], { type: "application/json" });
    
+    const formData = new FormData();
+
+    let foto = data.file[0];
+
+    if (foto == null) {
+
+      let sinBlob: string = "";
+      const blob2 = new Blob([sinBlob], { type: "multipart/form-data" });
+      formData.append("file", blob2, "default.png");
+
+    } else {
+      formData.append("file", foto);
+    }
+    // formData.append("file", data.file[0]);
+    formData.append("product", blob);
 
     axios
       .post(URL, formData, config)
       .then((response) => {
         console.log(response);
-        setSuccess("Se creo producto correctamente");
+        setSuccess("Se creo el producto correctamente");
         event?.target.reset();
         setError("");
       })
@@ -85,6 +106,7 @@ export const AddProductsFormBody = () => {
       {!!success && <div className=" alert alert-success">{success}</div>}
 
       <form className="text-start" onSubmit={addProduct}>
+        <label>Nombre del producto:</label>
         <div className=" input-group-outline my-3">
           <input
             type="text"
@@ -106,11 +128,11 @@ export const AddProductsFormBody = () => {
         </div>
 
         <div className=" input-group-outline my-3 ">
+        <label>Descripción:</label>
           <input
             type="text"
-            className={`${"form-control"} ${
-              errors.description && "cuadroError"
-            }`}
+            className={`${"form-control"} ${errors.description && "cuadroError"
+              }`}
             placeholder="Descripcion"
             {...register("description", {
               required: {
@@ -128,6 +150,7 @@ export const AddProductsFormBody = () => {
         </div>
 
         <div className="input-group-outline my-3">
+        <label>Precio:</label>
           <input
             type="number"
             className={`${"form-control"} ${errors.price && "cuadroError"}`}
@@ -154,7 +177,7 @@ export const AddProductsFormBody = () => {
             placeholder="Precio"
             {...register("file", {
               required: {
-                value: true,
+                value: false,
                 message: "Ingrese su archivo",
               },
             })}

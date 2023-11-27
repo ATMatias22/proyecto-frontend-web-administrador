@@ -58,12 +58,23 @@ export const SECTION_ROUTE_PRODUCTS = {
   ]
 }
 
+export const SECTION_ROUTE_CONTACT = {
+  key: 6,
+  name: "Contacto",
+  icon: "bi bi-people-fill",
+  route: MAIN_ROUTE_PANEL_ADMINISTRATOR.route + "/contacto",
+  path: [
+    { id: 1, name: "Contacto" },
+  ]
+}
+
 
 export const SECTIONS = [
   SECTION_ROUTE_PROFILE,
   SECTION_ROUTE_USERS,
   SECTION_ROUTE_PURCHASED_HARDWARE,
   SECTION_ROUTE_SALES,
-  SECTION_ROUTE_PRODUCTS
+  SECTION_ROUTE_PRODUCTS,
+  SECTION_ROUTE_CONTACT
 ]
 

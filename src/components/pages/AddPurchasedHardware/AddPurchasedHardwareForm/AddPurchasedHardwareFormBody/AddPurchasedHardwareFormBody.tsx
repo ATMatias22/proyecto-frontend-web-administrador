@@ -30,7 +30,7 @@ export const AddPurchasedHardwareFormBody = () => {
   const addPh = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
    
-    const URL = "http://localhost:8080/sensor/api/purchasedhardwares";
+    const URL = "http://localhost:8080/sensor/api/purchased-hardwares";
 
     const config: any = {
       headers: {
@@ -68,6 +68,7 @@ export const AddPurchasedHardwareFormBody = () => {
       {!!error && <div className=" alert alert-danger">{error}</div>}
       {!!success && <div className=" alert alert-success">{success}</div>}
       <form className="text-start" onSubmit={addPh}>
+      <label>Nombre del producto:</label>
         <div className="input-group input-group-outline my-3">
           <input
             type="text"
@@ -79,6 +80,7 @@ export const AddPurchasedHardwareFormBody = () => {
             value={nameProduct}
           />
         </div>
+        <label>Cantidad:</label>
         <div className="input-group input-group-outline my-3">
           <input
             type="text"
@@ -90,17 +92,19 @@ export const AddPurchasedHardwareFormBody = () => {
             value={quantity}
           />
         </div>
+        <label>Fecha de compra:</label>
         <div className="input-group input-group-outline my-3">
           <input
             type="text"
             className="form-control"
-            placeholder="Fecha de compra"
+            placeholder="YYYY/MM/DD"
             onChange={(e: React.FormEvent<HTMLInputElement>) =>
               setDatePurchase(e.currentTarget.value)
             }
             value={datePurchase}
           />
         </div>
+        <label>Proveedor:</label>
         <div className="input-group input-group-outline my-3">
           <input
             type="text"
@@ -112,6 +116,7 @@ export const AddPurchasedHardwareFormBody = () => {
             value={provider}
           />
         </div>
+        <label>Precio:</label>
         <div className="input-group input-group-outline my-3">
           <input
             type="text"

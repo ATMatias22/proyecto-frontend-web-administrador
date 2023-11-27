@@ -1,5 +1,5 @@
 import axios from "axios";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SECTION_ROUTE_PROFILE } from "../../Sidebar/sections";
 import "./styles.css";
@@ -8,7 +8,7 @@ export const FormLogin = () => {
 
 
   const navigate = useNavigate();
-  
+
 
   const [email, setEmail] = useState<String>();
   const [password, setPassword] = useState<String>();
@@ -19,6 +19,41 @@ export const FormLogin = () => {
   useEffect(() => {
     document.title = "Login";
   }, []);
+
+  const getData = () => {
+    if (localStorage.getItem("token")) {
+      const token: string = JSON.stringify(localStorage.getItem("token"));
+
+      const config: any = {
+        headers: {
+          Authorization: "Bearer " + window.localStorage.getItem("token"),
+        },
+      };
+
+      const payload = token.split(".")[1];
+      const payloadDecoded = atob(payload);
+      const values = JSON.parse(payloadDecoded);
+      const email = values.email;
+
+      const URL: string = "http://localhost:8080/sensor/api/users";
+
+      axios.get(URL, config).then((res) => {
+
+        const user = {
+          id:res.data.id,
+          name: res.data.name,
+          lastname: res.data.lastname,
+          country: res.data.country,
+          datesBirth: res.data.datesBirth,
+          email: res.data.email,
+        };
+        window.localStorage.setItem("user", JSON.stringify(user));
+        //console.log(res.data)
+
+        navigate(SECTION_ROUTE_PROFILE.route);
+      });
+    }
+  };
 
 
   const login = (e: React.FormEvent<HTMLFormElement>) => {
@@ -36,19 +71,11 @@ export const FormLogin = () => {
         window.localStorage.removeItem("token");
         window.localStorage.removeItem("user");
 
-        const user = {
-          id:response.data.id,
-          name: response.data.name,
-          lastName: response.data.lastName,
-          country: response.data.country,
-          datesBirth: response.data.datesBirth,
-          email: response.data.email,
-        };
+        //console.log(response.data)
+        window.localStorage.setItem("token", response.data.token);
+        getData();
 
-        window.localStorage.setItem("token", response.data.jwt.accessToken);
-        window.localStorage.setItem("user", JSON.stringify(user));
-
-        navigate(SECTION_ROUTE_PROFILE.route);
+        //navigate(SECTION_ROUTE_PROFILE.route);
       })
       .catch((error) => {
         console.log(error.response.data);

@@ -1,22 +1,23 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { SUB_SECTION_ROUTE_PRODUCTS_MODIFY } from "../../../../../../Sidebar/subsections";
+import { SUB_SECTION_ROUTE_PRODUCTS_ADD_STOCK, SUB_SECTION_ROUTE_PRODUCTS_MODIFY, SUB_SECTION_ROUTE_PRODUCTS_VIEW_STOCK } from "../../../../../../Sidebar/subsections";
 import { Product } from "../interfaces";
 import "./styles.css"
 
 
-export const ProductsTableBodyItem = (prod:Product) => {
+export const ProductsTableBodyItem = (prod: Product) => {
 
-  const [id,setId] = useState<number>(0);
+  const [id, setId] = useState<number>(0);
 
   useEffect(() => {
     setId(prod.id)
   }, [])
+
   
 
   const deleteProduct = () => {
-    const URL = "http://localhost:8080/sensor/api/products"+`/${id}`;
+    const URL = "http://localhost:8080/sensor/api/products" + `/${id}`;
 
     const config: any = {
       headers: {
@@ -28,8 +29,8 @@ export const ProductsTableBodyItem = (prod:Product) => {
       .delete(URL, config)
       .then((response) => {
         console.log(response);
-        alert("Eliminado el producto "+ id)
-       window.location.reload();
+        alert("Eliminado el producto " + id)
+        window.location.reload();
 
       })
       .catch((error) => {
@@ -67,6 +68,16 @@ export const ProductsTableBodyItem = (prod:Product) => {
           className="bi bi-trash icon-black cursor-pointer"
           onClick={deleteProduct}
         ></i>
+      </td>
+      <td className="align-middle text-center">
+        <Link to={SUB_SECTION_ROUTE_PRODUCTS_ADD_STOCK.route + "/" + prod.id}>
+          <i className="bi bi-plus icon-black cursor-pointer"></i>
+        </Link>
+      </td>
+      <td className="align-middle text-center">
+        <Link to={SUB_SECTION_ROUTE_PRODUCTS_VIEW_STOCK.route + "/" + prod.id}>
+          <i className="bi bi-eye icon-black cursor-pointer"></i>
+        </Link>
       </td>
     </tr>
   );

@@ -1,8 +1,11 @@
+import { User } from "../../../../Users/UsersTable/UserTableContainer/UserTableBody/interfaces";
+
 export interface Sale {
-  id:number,
-  namePurchaser:string,
-  lastNamePurchaser:string,
-  datePurchase:string,
+  saleOrderId:number,
+  state:string,
+  total:number,
+ user: User,
   productName:string,
-  quantity:number
+  created:string,
+ // state: string,
 }

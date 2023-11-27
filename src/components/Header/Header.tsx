@@ -17,7 +17,7 @@ export const Header = ({ onClick, width, breadcrums }: Props) => {
         <nav aria-label="breadcrumb">
           <ol className=" breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li className="breadcrumb-item ">
-              <span>Pages</span>
+              <span>Páginas</span>
             </li>
             {breadcrums.route.map((bc) => (
               <li key={bc.id} className="breadcrumb-item">
